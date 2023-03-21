@@ -30,7 +30,7 @@ Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registr
 Consulte as rotas disponiveis para requisitar a Api
 <br/>
 <br/>
-### Acesso e inicialização
+### Para acesso e inicialização
   
 | Método | URL requisição | Descrição |  Body Envio  |
 |  :---: | ------------------ | ------------------ | ------------------ |
@@ -39,15 +39,23 @@ Consulte as rotas disponiveis para requisitar a Api
 | <b>GET</b>    | ```/acesso/valida```     | Verifica usuario por email           | ```/:token```                       |
 | <b>POST</b>   | ```/api/init```          | Adiciona alguns produtos iniciais    |                                     |
 
-### CRUD de cadastros
+### Para criar/obter/atualizar/deletar cadastros
+
+### Tipos de cadastros
   
-| Cadastro | Body envio |
-| -------- | --------   |
-| usuario  |            |
-| pedido   |            |
-| produto  |            |
-| marca    |            |
+| Cadastro     | Body envio |
+| --------     | --------   |
+| usuario      |            |
+| grupousuario |            |
+| produto      |            |
+| pedido       |            |
+| anunciante   |            |
+| ramo         |            |
+| produto      |            |
+| anunciante   |            |
+
   
+  "usuario","grupousuario", "produto", "pedido", "anunciante","ramo", "endereco"
   
 ```
 GET /api/usuario
