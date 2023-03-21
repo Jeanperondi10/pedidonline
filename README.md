@@ -15,7 +15,7 @@ Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registr
 
 <ul>
   <li>Baixe o arquivo zipado do projeto, e descompacte na sua máquina local.</li>
-  <li>Instale o NVM(Gerenciador de pacotes), caso não tiver.<br>Utilizando <b>wGet</b>:<code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</code><br/>Ou utilizando <b>Curl</b>:<code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  <li>Instale o NVM(Gerenciador de pacotes), caso não tiver.<br>Com <b>wGet</b>:<code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</code><br/>Ou com <b>Curl</b>:<code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 </code></li>
   <li>Instale o Nodejs na versão <b>16.18.0</b>(mais adequada), utilizando o nvm.<br/><code>nvm install 16.18.0</code></li>
   <li>Instale o NPM, caso não tiver, com o comando <code>npm install npm -g</code><br/> E no diretório raiz do projeto execute o comando:<code>npm install</code><br/> para instalar todos os pacotes necessários descritos no arquivo <i>packtage.json</i>.</li>
