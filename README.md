@@ -24,13 +24,43 @@ Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registr
   <li>No terminal acesse o diretório raiz do projeto e execute: <code>node index.js</code></li>
   <li>Show! agora o servidor deve estar acessivel pelo link: https://localhost:3000 <br/>para testar requisições instale o PostMan ou outro programa similar, e consulte as diferentes rotas e funções a seguir.</li>
 </ul>
-
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
   
 ## 📋 Listagem de Rotas
   
-De que coisas você precisa para instalar o software e como instalá-lo?
+Consulte as rotas disponiveis para requisitar a Api
+<br/>
+<br/>
+### Acesso e autenticação
+```
+POST /acesso/resgistro
+```
+<table width="500">
+  <tbody>
+    <tr>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
+<br/>
+<br/>
+```
+POST /acesso/login
+```
+
+<br/>
+<br/>
+```
+POST /acesso/valida
+```
+
+<br/>
+<br/>
 ```
 GET /api/usuario
 ```
