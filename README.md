@@ -1,12 +1,14 @@
 <h1 align="center">Documentação - pedidOnline</h1>
 
-API de Pedidos de Produtos em NodeJS, para o DevEvolution
-
+<h5 align="center">API de Pedidos de Produtos em NodeJS, para o DevEvolution<h5>
+  
 ## 📦 Introdução
+
 A execução do projeto constroi um servidor local no link https://localhost:3000 (porta web 3000), que permite através de autenticação JWT, acessar rotas CRUD(Create, Read, Update,Delete) para obter informações e manipular dados relacionados a <i>produtos, pedidos, marcas, usuarios, grupodeusuarios</i>.<br/><br/>
 <b><u>Como obter token de acesso JWT?</u></b><br/>
-Cadastrando um novo usuario, atraves da rota pública <i><b>POST /api/registro</b></i> informando os dados: <i>{nome:"", email:"", senha:""}</i><br/> 
-<b>Verificação por email!</b> o token(temporário) é enviado para o e-mail do usuario cadastrado, assim como um botão que direciona para a rota de validação(verificado por e-mail) que é publica: <i><b>POST /api/valida/:token</b></i>. <br/><b>Atenção!</b> o login(p/ obter novo token) somente é permitido para usuarios verificados por e-mail.<br/>
+Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registro</b></i> informando os dados: <i>{nome:"", email:"", senha:""}</i><br/> 
+<b>Verificação por email!</b> o token(temporário) é enviado para o e-mail do usuario cadastrado, assim como um botão que direciona para a rota de validação(verificado por e-mail) que é publica: <i><b>POST /acesso/valida/:token</b></i>. <br/>
+<b>Atenção!</b> o login através da rota <i><b>POST /acesso/login/</b></i>(p/ obter novo token) somente é permitido para usuarios verificados por e-mail.<br/>
 
 
 ## 🚀 Preparar Lançamento
@@ -19,16 +21,14 @@ Cadastrando um novo usuario, atraves da rota pública <i><b>POST /api/registro</
   <li>Instale o NPM, caso não tiver, com o comando <code>npm install npm -g</code><br/> E no diretório raiz do projeto execute o comando:<code>npm install</code><br/> para instalar todos os pacotes necessários descritos no arquivo <i>packtage.json</i>.</li>
   <li>Opcionalmente pode ser instalado ferramentas facilitadoras de inicialização do servidor.<br/>
   <b>Nodemon:</b><code>npm install nodemon --savedev</code> e <b>Pm2:</b><code>npm install pm2 -g</code></li>
+  <li>No terminal acesse o diretório raiz do projeto e execute: <code>node index.js</code></li>
+  <li>Show! agora o servidor deve estar acessivel pelo link: https://localhost:3000 <br/>para testar requisições instale o PostMan ou outro programa similar, e consulte as diferentes rotas e funções a seguir.</li>
 </ul>
 
-
-
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
-
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
-
-### 📋 Listagem de Rotas
-
+  
+## 📋 Listagem de Rotas
+  
 De que coisas você precisa para instalar o software e como instalá-lo?
 
 ```
