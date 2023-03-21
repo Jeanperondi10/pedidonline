@@ -30,37 +30,25 @@ Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registr
 Consulte as rotas disponiveis para requisitar a Api
 <br/>
 <br/>
-### Acesso e autenticação
-```
-POST /acesso/resgistro
-```
-<table width="500">
-  <tbody>
-    <tr>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+### Acesso e inicialização
+  
+| Método | URL requisição | Descrição |  Body Envio  |
+|  :---: | ------------------ | ------------------ | ------------------ |
+| <b>POST</b>   | ```/acesso/resgistro```  | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
+| <b>POST</b>   | ```/acesso/login```      | Login obtem novo token valido        | ```{email:"", senha:""}```          |
+| <b>GET</b>    | ```/acesso/valida```     | Verifica usuario por email           | ```/:token```                       |
+| <b>POST</b>   | ```/api/init```          | Adiciona alguns produtos iniciais    |                                     |
 
-<br/>
-<br/>
-```
-POST /acesso/login
-```
-
-<br/>
-<br/>
-```
-POST /acesso/valida
-```
-
-<br/>
-<br/>
+### CRUD de cadastros
+  
+| Cadastro | Body envio |
+| -------- | --------   |
+| usuario  |            |
+| pedido   |            |
+| produto  |            |
+| marca    |            |
+  
+  
 ```
 GET /api/usuario
 ```
