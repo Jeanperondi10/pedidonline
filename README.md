@@ -6,7 +6,7 @@
 
 A execução do projeto constroi um servidor local no link https://localhost:3000 (porta web 3000), que permite através de autenticação JWT, acessar rotas CRUD(Create, Read, Update,Delete) para obter informações e manipular dados relacionados a <i>produtos, pedidos, marcas, usuarios, grupodeusuarios</i>.<br/><br/>
 <b><u>Como obter token de acesso JWT?</u></b><br/>
-Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registro</b></i> informando os dados: <i>{nome:"", email:"", senha:""}</i><br/> 
+Cadastrando um novo usuario, atraves da rota pública <i><b>POST /acesso/registro</b></i> enviando os dados: <code>{nome:"", email:"", senha:""}</code></i><br/> 
 <b>Verificação por email!</b> o token(temporário) é enviado para o e-mail do usuario cadastrado, assim como um botão que direciona para a rota de validação(verificado por e-mail) que é publica: <i><b>POST /acesso/valida/:token</b></i>. <br/>
 <b>Atenção!</b> o login através da rota <i><b>POST /acesso/login/</b></i>(p/ obter novo token) somente é permitido para usuarios verificados por e-mail.<br/>
 
@@ -37,16 +37,32 @@ Consulte as rotas disponiveis para requisitar a Api
 | <b>POST</b>   | ```/acesso/resgistro```  | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
 | <b>POST</b>   | ```/acesso/login```      | Login obtem novo token valido        | ```{email:"", senha:""}```          |
 | <b>GET</b>    | ```/acesso/valida```     | Verifica usuario por email           | ```/:token```                       |
-| <b>POST</b>   | ```/api/init```          | Adiciona alguns produtos iniciais    |                                     |
+| <b>POST</b>   | ```/api/init```          | *Alimenta o banco com infos padrão   | Requer autenticação                 |
+| <b>POST</b>   | ```/api/reset```         | *Limpa o banco de dados              | Requer autenticação                 |
+<p>*Exceto para os cadastros do usuario e pedido</p>
+
 
 ### Para criar/obter/atualizar/deletar cadastros
+| Método | URL requisição | Descrição |  Body Envio  |
+|  :---: | ------------------ | ------------------ | ------------------ |
+| <b>POST</b>   | ```/api/{cadastro}/```           | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
+| <b>GET</b>    | ```/api/{cadastro}/```           | Login obtem novo token valido        | ```{email:"", senha:""}```          |
+| <b>GET</b>    | ```/api/{cadastro}/:id```        | Verifica usuario por email           | ```/:token```                       |
+| <b>GET</b>    | ```/api/pop/{cadastro}/```       | *Alimenta o banco com infos padrão   | Requer autenticação                 |
+| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | *Limpa o banco de dados              | Requer autenticação                 |
+| <b>PUT</b>    | ```/api/{cadastro}/:id```        |  ||
+| <b>DELETE</b> | ```/api/{cadastro}/```           |  ||
+| <b>DELETE</b> | ```/api/{cadastro}/:id```        |  ||
+| <b>POST</b>   | ```/api/agrupa/{cadastro}/:cmp```| *Limpa o banco de dados              | Requer autenticação                 |
+| <b>POST</b>   | ```/api/macth/{cadastro}/:id```  | *Limpa o banco de dados              | Requer autenticação                 |
+
 
 ### Tipos de cadastros
   
 | Cadastro     | Body envio |
 | --------     | --------   |
-| usuario      |            |
-| grupousuario |            |
+| usuario      | <code>nome: String,</code><br/><code>email: {type: String, required: true, unique: true, lowercase: true},</code><br/><code>senha: {type: String, required: true},</code><br/><code>grupousuario: String,</code><br/><code>endereco: String</code>|
+| grupousuario | <code>nome: String,</code><br/><code>desc: String,</code><br/><code>permpost: {type: Boolean,required: true},</code><br/><code>permget: {type: Boolean,required: true},</code><br/><code>permput: {type: Boolean,required: true},</code><br/><code>permdel: {type: Boolean,required: true}</code> |
 | produto      |            |
 | pedido       |            |
 | anunciante   |            |
