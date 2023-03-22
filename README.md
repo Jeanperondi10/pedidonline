@@ -42,22 +42,23 @@ Consulte as rotas disponiveis para requisitar a Api
 <p>*Exceto para os cadastros do usuario e pedido</p>
 
 
-### Para criar/obter/atualizar/deletar cadastros
-| Método | URL requisição | Descrição |  JSON Envio  |
-|  :---: | ------------------ | ------------------ | ------------------ |
-| <b>POST</b>   | ```/api/{cadastro}/```           | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
-| <b>GET</b>    | ```/api/{cadastro}/```           | Login obtem novo token valido        | ```{email:"", senha:""}```          |
-| <b>GET</b>    | ```/api/{cadastro}/:id```        | Verifica usuario por email           | ```/:token```                       |
-| <b>GET</b>    | ```/api/pop/{cadastro}/```       | *Alimenta o banco com infos padrão   | Requer autenticação                 |
-| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | *Limpa o banco de dados              | Requer autenticação                 |
-| <b>PUT</b>    | ```/api/{cadastro}/:id```        |  ||
-| <b>DELETE</b> | ```/api/{cadastro}/```           |  ||
-| <b>DELETE</b> | ```/api/{cadastro}/:id```        |  ||
-| <b>POST</b>   | ```/api/agrupa/{cadastro}/:cmp```| *Limpa o banco de dados              | Requer autenticação                 |
-| <b>POST</b>   | ```/api/macth/{cadastro}/:id```  | *Limpa o banco de dados              | Requer autenticação                 |
+### Para CRUD de cadastros
+| Método | URL requisição | Descrição | 
+|  :---: | ------------------ | ------------------ |
+| <b>POST</b>   | ```/api/{cadastro}/```           | Cria um novo registro no documento | 
+| <b>GET</b>    | ```/api/{cadastro}/```           | Obtem infos de todos os registros do documento |
+| <b>GET</b>    | ```/api/{cadastro}/:id```        | Obtem infos de um unico registro do documento | 
+| <b>GET</b>    | ```/api/pop/{cadastro}/```       | Obtem infos <b>populadas</b> de todos os registros do documento | 
+| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | Obtem infos <b>populadas</b> de um unico registro do documento | 
+| <b>PUT</b>    | ```/api/{cadastro}/:id```        | Atualiza infos de um registro no documento |
+| <b>DELETE</b> | ```/api/{cadastro}/```           | Deleta alguns registos correspondentes ao JSON enviado no body <br/><b>Atenção! use comcautela para não perder dados</b>|
+| <b>DELETE</b> | ```/api/{cadastro}/:id```        | Deleta um único registro, informando o ID |
+| <b>POST</b>   | ```/api/agrupa/{cadastro}/:cmp```| Retorna um objeto agrupando os documentos por um campo e contando |
+| <b>POST</b>   | ```/api/match/{oper}/{cadastro}/:cmp``` |  Obtem alguns registros do documento que corresponde a uma operação<br>No BODY da requisição é preciso enviar um JSON com o atributo valor.<br><b>{oper} =</b>"igual","naoigual","maior","maiorigual","menor","menorigual","contem","naocontem", "existe"}; 
+| 
 
 
-### Tipos de cadastros
+### Tipos de {cadastro}
   
 | Cadastro     | Campos |
 | --------     | --------   |
