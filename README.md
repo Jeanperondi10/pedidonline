@@ -43,7 +43,7 @@ Consulte as rotas disponiveis para requisitar a Api
 
 
 ### Para criar/obter/atualizar/deletar cadastros
-| Método | URL requisição | Descrição |  Body Envio  |
+| Método | URL requisição | Descrição |  JSON Envio  |
 |  :---: | ------------------ | ------------------ | ------------------ |
 | <b>POST</b>   | ```/api/{cadastro}/```           | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
 | <b>GET</b>    | ```/api/{cadastro}/```           | Login obtem novo token valido        | ```{email:"", senha:""}```          |
@@ -59,7 +59,7 @@ Consulte as rotas disponiveis para requisitar a Api
 
 ### Tipos de cadastros
   
-| Cadastro     | Body envio |
+| Cadastro     | Campos |
 | --------     | --------   |
 | usuario      | <code>nome: String,</code><br/><code>email: {type: String, required: true, unique: true, lowercase: true},</code><br/><code>senha: {type: String, required: true},</code><br/><code>grupousuario: {type: String, ref: 'grupousuario'},</code><br/><code>endereco: {type: String, ref: 'endereco'}</code>|
 | grupousuario | <code>nome: {type: String, required: true},</code><br/><code>desc: String,</code><br/><code>permpost: {type: Boolean,required: true},</code><br/><code>permget: {type: Boolean,required: true},</code><br/><code>permput: {type: Boolean,required: true},</code><br/><code>permdel: {type: Boolean,required: true}</code> |
@@ -70,16 +70,11 @@ Consulte as rotas disponiveis para requisitar a Api
 | produto      |            |
 | anunciante   |            |
 
-  
-  "usuario","grupousuario", "produto", "pedido", "anunciante","ramo", "endereco"
-  
-```
-GET /api/usuario
-```
-<code>
-  Um código Json aqui
-</code>
+ 
+## 🛠️ Arquitetura do Software
 
+
+  
 ### 🔧 Instalação
 
 Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
