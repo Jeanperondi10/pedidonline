@@ -34,7 +34,7 @@ Consulte as rotas disponiveis para requisitar a Api
   
 | Método | URL requisição | Descrição |  Body Envio  |
 |  :---: | ------------------ | ------------------ | ------------------ |
-| <b>POST</b>   | ```/acesso/resgistro```  | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
+| <b>POST</b>   | ```/acesso/registro```  | Cadastra novo usuario e envia e-mail | ```{email:"", senha:"", nome:""}``` |
 | <b>POST</b>   | ```/acesso/login```      | Login obtem novo token valido        | ```{email:"", senha:""}```          |
 | <b>GET</b>    | ```/acesso/valida```     | Verifica usuario por email           | ```/:token```                       |
 | <b>POST</b>   | ```/api/init```          | *Alimenta o banco com infos padrão   | Requer autenticação                 |
@@ -45,12 +45,12 @@ Consulte as rotas disponiveis para requisitar a Api
 ### Para CRUD de cadastros
 | Método | URL requisição | Descrição | 
 |  :---: | ------------------ | ------------------ |
-| <b>POST</b>   | ```/api/{cadastro}/```           | Cria um novo registro no documento | 
+| <b>POST</b>   | ```/api/{cadastro}/```           | Cria um novo registro no documento, enviando na requisição JSON | 
 | <b>GET</b>    | ```/api/{cadastro}/```           | Obtem infos de todos os registros do documento |
-| <b>GET</b>    | ```/api/{cadastro}/:id```        | Obtem infos de um unico registro do documento | 
+| <b>GET</b>    | ```/api/{cadastro}/:id```        | Obtem infos de um unico registro do documento, com o ID na URL | 
 | <b>GET</b>    | ```/api/pop/{cadastro}/```       | Obtem infos <b>populadas</b> de todos os registros do documento | 
-| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | Obtem infos <b>populadas</b> de um unico registro do documento | 
-| <b>PUT</b>    | ```/api/{cadastro}/:id```        | Atualiza infos de um registro no documento |
+| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | Obtem infos <b>populadas</b> de um unico registro do documento, com o ID na URL | 
+| <b>PUT</b>    | ```/api/{cadastro}/:id```        | Atualiza infos de um registro no documento, com o ID na URL |
 | <b>DELETE</b> | ```/api/{cadastro}/```           | Deleta alguns registos correspondentes ao JSON enviado no body <br/><b>Atenção! use comcautela para não perder dados</b>|
 | <b>DELETE</b> | ```/api/{cadastro}/:id```        | Deleta um único registro, informando o ID |
 | <b>POST</b>   | ```/api/agrupa/{cadastro}/:cmp```| Retorna um objeto agrupando os documentos por um campo e contando |
@@ -68,8 +68,7 @@ Consulte as rotas disponiveis para requisitar a Api
 | pedido       | <code>status: {type:Boolean, default: false},</code><br/><code>data: {type:Date, default: Date.now()},</code><br/><code>usuario: {type: String, ref: 'usuario'},</code><br/><code>produto: {type: String, ref: 'produto'},</code><br/><code>quantidade: {type:Number, default: 0}</code> |
 | anunciante   | <code>nome: {type:String, required: true},</code><br/><code>cnpj: String,</code><br/><code>ramo: String,</code><br/><code>telefone: String,</code><br/><code>celular: String,</code><br/><code>email: String,</code><br/><code>endereco: {type: String, ref: 'endereco'},</code><br/><code>linklogo: String</code> |
 | ramo         | <code>nome: {type:String, required: true},</code><br/><code>desc: String,</code><br/><code>percimpos: Number</code> |
-| produto      |            |
-| anunciante   |            |
+| endereco      | <code>endereco: {type: String,required: true},</code><br/><code>referencia: {type: String},</code><br/><code>complemento: {type: String},</code><br/><code>cep: {type: String},</code><br/><code>cidade: {type: String,required: true},</code><br/><code>uf: {type: String,required: true},</code><br/><code>numero: {type: String}</code> |
 
  
 ## 🛠️ Arquitetura do Software
