@@ -19,6 +19,7 @@ Cadastrando um novo usuario, através da rota pública <i><b>POST /acesso/regist
 </code></li>
   <li>Instale o Nodejs na versão <b>16.18.0</b>(mais adequada), utilizando o nvm.<br/><code>nvm install 16.18.0</code></li>
   <li>Instale o NPM, caso não tiver, com o comando <code>npm install npm -g</code><br/> E no diretório raiz do projeto execute o comando:<code>npm install</code><br/> para instalar todos os pacotes necessários descritos no arquivo <i>packtage.json</i>.</li>
+  <li>Instale o banco de dados <b>MongoDB</b>, através do site oficial: https://www.mongodb.com/</li>
   <li>Opcionalmente pode ser instalado ferramentas facilitadoras de inicialização do servidor.<br/>
   <b>Nodemon:</b><code>npm install nodemon --savedev</code> e <b>Pm2:</b><code>npm install pm2 -g</code></li>
   <li>No terminal acesse o diretório raiz do projeto e execute: <code>node index.js</code></li>
@@ -45,20 +46,20 @@ Consulte as rotas disponiveis para requisitar a Api
 ### Para CRUD de cadastros
 | Método | URL requisição | Descrição | 
 |  :---: | ------------------ | ------------------ |
-| <b>POST</b>   | ```/api/{cadastro}/```           | Cria um novo registro no documento | 
-| <b>GET</b>    | ```/api/{cadastro}/```           | Obtem infos de todos os registros do documento |
-| <b>GET</b>    | ```/api/{cadastro}/:id```        | Obtem infos de um unico registro do documento, com o ID na URL | 
-| <b>GET</b>    | ```/api/pop/{cadastro}/```       | Obtem infos <b>populadas</b> de todos os registros do documento | 
-| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | Obtem infos <b>populadas</b> de um unico registro do documento, com o ID na URL | 
-| <b>PUT</b>    | ```/api/{cadastro}/:id```        | Atualiza infos de um registro no documento, com o ID na URL |
-| <b>DELETE</b> | ```/api/{cadastro}/```           | Deleta alguns registos correspondentes ao JSON enviado no body <br/><b>Atenção! use comcautela para não perder dados</b>|
-| <b>DELETE</b> | ```/api/{cadastro}/:id```        | Deleta um único registro, informando o ID |
-| <b>POST</b>   | ```/api/agrupa/{cadastro}/:cmp```| Retorna um objeto agrupando os documentos por um campo e contando |
-| <b>POST</b>   | ```/api/match/{oper}/{cadastro}/:cmp``` |  Obtem alguns registros do documento que corresponde a uma operação<br>No BODY da requisição é preciso enviar um JSON com o atributo valor.<br><b>{oper} =</b>"igual","naoigual","maior","maiorigual","menor","menorigual","contem","naocontem", "existe"}; 
+| <b>POST</b>   | ```/api/{cadastro}/```           | Cria um novo registro | 
+| <b>GET</b>    | ```/api/{cadastro}/```           | Obtem todos os registros |
+| <b>GET</b>    | ```/api/{cadastro}/:id```        | Obtem um registro do documento, com o ID na URL | 
+| <b>GET</b>    | ```/api/pop/{cadastro}/```       | Obtem todos os registros <b>populados</b>(campo ID que referencia) | 
+| <b>GET</b>    | ```/api/pop/{cadastro}/:id```    | Obtem um unico registro <b>populado</b>, com o ID na URL | 
+| <b>PUT</b>    | ```/api/{cadastro}/:id```        | Atualiza um registro, com o ID na URL |
+| <b>DELETE</b> | ```/api/{cadastro}/```           | Deleta alguns registos correspondentes ao JSON enviado no body <br/><b>Atenção!</b> use com cautela, para evitar perda de dados|
+| <b>DELETE</b> | ```/api/{cadastro}/:id```        | Deleta um único registro, com o ID na URL |
+| <b>POST</b>   | ```/api/agrupa/{cadastro}/:cmp```| Retorna agrupamento, que conta infos iguais em um campo(na URL) |
+| <b>POST</b>   | ```/api/match/{oper}/{cadastro}/:cmp``` |  Retorna os registros que corresponde a uma operação<br><b>Obs.</b> É preciso enviar um JSON na requisição, com o atributo valor.<br/>Por exemplo: <code>{ valor: "" }</code> ou <code>{ valor: [""] }</code><br/><br/><b>Operações {oper} =</b><br/>"igual","naoigual","maior","maiorigual","menor","menorigual","contem","naocontem", "existe"}; 
 | 
 
 
-### Tipos de {cadastro}
+### Tipos de {cadastro} e informações
   
 | Cadastro     | Campos |
 | --------     | --------   |
@@ -72,6 +73,28 @@ Consulte as rotas disponiveis para requisitar a Api
 
  
 ## 🛠️ Arquitetura do Software
+O arquivo nomeado como "index.js" que fica localizado na pasta raiz do projeto, cria um  o servidor importando as blibiotecas necessárias e definindo o roteamento da API.<br/>
+
+### Estruturação de diretórios
+
+<b>/src</b><br/>
+Configura, autentica e define diferentes fluxos de comunicação para a consulta da API no banco mongoDB;<br/>
+
+<b>/src/routes</b><br/>
+Define os dois diferentes tipos de rotas da aplicação(CRUD e Acesso) e envia para o controller praticamente tudo recebe.<br/>
+
+<b>/src/controllers</b><br/>
+Filtra os dados que serão utilizados para a consulta porterior, e retorna para a rota a resposta quando finalizado.<br/>
+
+<b>/src/services</b><br/>
+Recebe somente os dados necessários para efetuar a consulta no banco, se ocorrer tudo certo retorna para o controller os dados esperados<br/>
+
+<b>/src/setup</b><br/>
+Configura o Banco de dados, armazena dados padrões(de alimentação por rota) e o mais importante define os nomes dos documentos/rotas do crud <br/>
+
+
+
+
 
 
 
