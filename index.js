@@ -5,7 +5,6 @@ const path = require('path');
 const app = express();
 
 app.use(bodyParser.json()); //Processar dados em JSON
-app.set('views', path.join(__dirname, 'views')); //define a pasta de visualizações
 
 
 app.listen(3000, () => {
