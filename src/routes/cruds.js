@@ -20,7 +20,7 @@ crudNames.forEach((crudName)=>{//Percorre cada nomecadastro
     });
 
     //Ler todos os registros
-    router.get('/'+crudName+'/', (req, res) => {
+    router.get('/'+crudName+'/', validate(), (req, res) => {
         CrudController.find(crudName, req, res);
     });
     
@@ -30,7 +30,7 @@ crudNames.forEach((crudName)=>{//Percorre cada nomecadastro
     });
 
     //Ler todos os registros
-    router.get('/pop/'+crudName+'/', (req, res) => {
+    router.get('/pop/'+crudName+'/', validate(), (req, res) => {
         console.log("Populando geral de"+crudName)
         CrudController.findPop(crudName, req, res);
     });
