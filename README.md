@@ -75,7 +75,7 @@ Consulte as rotas disponiveis para requisitar a Api
 
 
 
-## 📌 Versão
+## 📌 Versão - 1.0.0
 
 
 ## ✒️ Autor
@@ -83,13 +83,3 @@ Consulte as rotas disponiveis para requisitar a Api
 * **Jean Perondi** - *Projeto Completo - pedidOnline* - [perondjean](https://github.com/Jeanperondi10)
 
 
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢;
-* Convide alguém da equipe para uma cerveja 🍺;
-* Um agradecimento publicamente 🫂;
-* etc.
-
-
----
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
